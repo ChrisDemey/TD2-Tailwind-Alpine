@@ -6,630 +6,922 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.12.0/dist/alpine.js" defer></script>
+    <script src="https://kit.fontawesome.com/10c628aa26.js" crossorigin="anonymous"></script>
     <title>TC's The Division 2</title>
 </head>
 
 <body>
-    <!-- background image -->
+<!-- background image -->
     <img class="fixed h-screen w-full object-cover" src="https://wallpaperaccess.com/full/1391140.jpg" alt="background image">
+<!-- gray filter for background -->
+    <div class="fixed bg-black opacity-75 h-full w-full"></div>
 
-    <!-- gray filter for background -->
-    <div class="absolute bg-gray-900 opacity-75 h-full w-full"></div>
+<!-- content -->
+    <div class="relative h-screen flex flex-col p-3">
 
-    <!-- content -->
-    <div class="relative h-screen flex flex-col ">
+    <!-- header -->
+        <div class="flex justify-center"><img class="w-56" src="https://ubistatic-a.akamaihd.net/0115/tctd2/images/TCTD2_Logo_Full_Orange_White.png" alt="TD2-logo"></div>
 
-        <!-- header -->
-        <div class="flex justify-center py-3"><img class="w-56" src="https://ubistatic-a.akamaihd.net/0115/tctd2/images/TCTD2_Logo_Full_Orange_White.png" alt="TD2-logo"></div>
+    <!-- main part -->
+        <div class="flex h-full flex-col md:flex-row overflow-y-hidden" x-data="{ tab: '' }">
 
-        <!-- main part -->
-        <div class="flex h-full flex-col md:flex-row" x-data="{ tab: '' }">
-
-            <!-- navbar (buttons) -->
-            <nav class="mx-auto md:w-1/3 flex flex-row md:flex-col">
+        <!-- navbar (buttons) -->
+            <nav class="mx-auto my-4 w-full md:h-full justify-center md:space-y-10 md:w-1/3 flex flex-row md:flex-col">
                 <!-- brands -->
                 <button
                     :class="{ 'block': tab === 'brands' }" 
                     @click="tab = 'brands'" 
-                    class="h-full p-5 sm:text-sm md:text-2xl lg:text-4xl transition duration-300 bg-transparent text-orange-500 uppercase font-bold text-center hover:text-orange-700 hover:bg-orange-500 hover:border-none focus:outline-none"
+                    class="
+                        p-3
+                        rounded
+                        sm:text-sm
+                        md:text-2xl
+                        lg:text-4xl
+                        transition
+                        duration-300
+                        bg-transparent
+                        text-orange-500
+                        uppercase
+                        font-bold
+                        text-center
+                        hover:text-orange-700
+                        hover:bg-orange-500
+                        hover:border-none
+                        focus:outline-none
+                        focus:bg-orange-500
+                        focus:text-orange-700"
                     >marques
                 </button>
                 <!-- exotics -->
                 <button 
                     :class="{ 'block': tab === 'exo' }" 
                     @click="tab = 'exo'" 
-                    class="h-full p-5 sm:text-sm md:text-2xl lg:text-4xl transition duration-300 bg-transparent text-red-600 uppercase font-bold text-center hover:text-red-800 hover:bg-red-600 hover:border-none focus:outline-none"
+                    class="
+                        p-3
+                        rounded
+                        sm:text-sm
+                        md:text-2xl
+                        lg:text-4xl
+                        transition
+                        duration-300
+                        bg-transparent
+                        text-red-600
+                        uppercase
+                        font-bold
+                        text-center
+                        hover:text-red-800
+                        hover:bg-red-600
+                        hover:border-none
+                        focus:outline-none
+                        focus:bg-red-600
+                        focus:text-red-800"
                     >exotiques
                 </button>
                 <!-- gear sets -->
                 <button 
                     :class="{ 'block': tab === 'sets' }" 
                     @click="tab = 'sets'" 
-                    class="h-full p-5 sm:text-sm md:text-2xl lg:text-4xl transition duration-300 bg-transparent text-teal-500 uppercase font-bold text-center hover:text-teal-700 hover:bg-teal-500 hover:border-none focus:outline-none"
+                    class="
+                        p-3
+                        rounded
+                        sm:text-sm
+                        md:text-2xl
+                        lg:text-4xl
+                        transition
+                        duration-300
+                        bg-transparent
+                        text-teal-500
+                        uppercase
+                        font-bold
+                        text-center
+                        hover:text-teal-700
+                        hover:bg-teal-500
+                        hover:border-none
+                        focus:outline-none
+                        focus:bg-teal-500
+                        focus:text-teal-700"
                     >sets
                 </button>
             </nav>
 
-            <!-- Tables -->
-            <div class="mx-auto md:w-2/3 flex content-center flex-wrap">
+        <!-- Tables -->
+            <div class="overflow-y-auto md:mt-10 mx-auto w-full md:w-2/3 flex">
 
-                <!-- brands tab -->
-                <table class="table-auto mx-auto bg-orange-500" x-show="tab === 'brands'">
-                    <tbody class="text-gray-900">
-                        <tr>
-                            <!-- tactical -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ tactical: false }" @click="tactical = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">5.11 Tactical</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="tactical" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="tactical = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">5.11 Tactical</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+5%</span> protection contre les Élites</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> soins reçus bonus</li>
-                                            <li>Bonus 3: <span class="text-green-400">+10%</span> Maniement des armes</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Torse</li>
-                                            <li>Sac à dos</li>
-                                            <li>Gants</li>
-                                        </ul>
+            <!-- brands tab -->
+                <div class="md:mx-auto md:w-auto w-full text-gray-900 flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-2" x-show="tab === 'brands'">
+                    <ul class="text-center font-bold space-y-2 cursor-pointer">
+                        <!-- tactical -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ tactical: false }" @click="tactical = open">5.11 Tactical
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="tactical" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="tactical = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">5.11 Tactical</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> santé</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> réparations bonus</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> protection altérations d'état</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- airaldi -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ airaldi: false }" @click="airaldi = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Airaldi Holdings</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="airaldi" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="airaldi = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Airaldi Holdings</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> précision</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> dégâts de tirs à la tête</li>
-                                            <li>Bonus 3: <span class="text-green-400">+10%</span> dégâts fusils de précision</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Sac à dos</li>
-                                            <li>Gants</li>
-                                            <li>Holster</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- airaldi -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ airaldi: false }" @click="airaldi = open">Airaldi Holdings
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="airaldi" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="airaldi = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Airaldi Holdings</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils de préciion</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> dégâts de headshot</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+5%</span> dégâts aux protections</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- alps summit -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ summit: false }" @click="summit = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Alps Summit Armament</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="summit" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="summit = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Alps Summit Armament</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> réduction de temps de recharge (compétences)</li>
-                                            <li>Bonus 2: <span class="text-green-400">+5%</span> puissance de la compétence</li>
-                                            <li>Bonus 3: <span class="text-green-400">+15%</span> puissance de compétence de la Ruche</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Torse</li>
-                                            <li>Sac à dos</li>
-                                            <li>Gants</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- alps summit -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ summit: false }" @click="summit = open">Alps Summit Armament
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="summit" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="summit = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Alps Summit Armament</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> compétences de réparation</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+20%</span> durée de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> récupération de compétences</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- badger -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ badger: false }" @click="badger = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Badger Tuff</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="badger" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="badger = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Badger Tuff</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+7%</span> dégâts contre Élites</li>
-                                            <li>Bonus 2: <span class="text-green-400">+15%</span> protection pour élimination</li>
-                                            <li>Bonus 3: <span class="text-green-400">+15%</span> puissance de compétence du Lanceur chimique</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Sac à dos</li>
-                                            <li>Masque</li>
-                                            <li>Gants</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- badger -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ badger: false }" @click="badger = open">Badger Tuff
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="badger" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="badger = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Badger Tuff</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils à pompe</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+5%</span> protection totale</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- ceska -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ ceska: false }" @click="ceska = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Česká Výroba s.r.o.</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="ceska" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="ceska = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Česká Výroba s.r.o.</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> effet de status</li>
-                                            <li>Bonus 2: <span class="text-green-400">+1%</span> régénération d'armure par secondes</li>
-                                            <li>Bonus 3: <span class="text-green-400">+5%</span> armure totale</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- ceska -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ ceska: false }" @click="ceska = open">Česká Výroba s.r.o.
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="ceska" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="ceska = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Česká Výroba s.r.o.</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> probalité de coups critiques</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> protection contre altération d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> santé</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- china -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ china: false }" @click="china = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">China Light Industries Corporation</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="china" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="china = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">China Light Industries Corporation</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> dégâts d'explosion</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> dégâts de fusil à pompe</li>
-                                            <li>Bonus 3: <span class="text-green-400">+10%</span> réduction du temps de recharge (armes)</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Masque</li>
-                                            <li>Gants</li>
-                                            <li>Genouillères</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- china -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ china: false }" @click="china = open">China Light Industries Corporation
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="china" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="china = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">China Light Industries Corporation</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> dégâts d'explosion</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> récupération de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> effets d'état</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- corporation -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ corporation: false }" @click="corporation = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Corporation Hana-U</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="corporation" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="corporation = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Corporation Hana-U</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+20%</span> vitesse des compétences</li>
-                                            <li>Bonus 2: <span class="text-green-400">+20%</span> dégâts des compétences</li>
-                                            <li>Bonus 3: <span class="text-green-400">+5%</span> dégâts d'armes</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- douglas -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ douglas: false }" @click="douglas = open">Douglas & Harding
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="douglas" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="douglas = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Douglas & Harding</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+20%</span> dégâts de pistolets</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> de stabilité</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> de précision</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- douglas -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ douglas: false }" @click="douglas = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Douglas & Harding</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="douglas" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="douglas = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Douglas & Harding</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+5%</span> précision</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> dégâts de coups critiques</li>
-                                            <li>Bonus 3: <span class="text-green-400">+7%</span> chances de coups critiques</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Masque</li>
-                                            <li>Genouillères</li>
-                                            <li>Holster</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- fenris -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ fenris: false }" @click="fenris = open">Fenris Group AB
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="fenris" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="fenris = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Fenris Group AB</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils d'assaut</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> vitesse de rechargement</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> de stabilité</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- fenris -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ fenris: false }" @click="fenris = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Fenris Group AB</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="fenris" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="fenris = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Fenris Group AB</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> dégâts de fusil d'assaut</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> protection contre les Élites</li>
-                                            <li>Bonus 3: <span class="text-green-400">+20%</span> santé sur élimination</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Torse</li>
-                                            <li>Genouillères</li>
-                                            <li>Holster</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- gila -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ gila: false }" @click="gila = open">Gila Guard
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="gila" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="gila = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Gila Guard</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+5%</span> protection totale</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> de santé</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+1%</span> de régénération de protection</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- gila -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ gila: false }" @click="gila = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Gila Guard</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="gila" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="gila = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Gila Guard</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+5%</span> armure totale</li>
-                                            <li>Bonus 2: <span class="text-green-400">+20%</span> protection contre les altérations d'état</li>
-                                            <li>Bonus 3: <span class="text-green-400">+15%</span> puissance de compétence de l'Impulsion</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Tous</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- golan -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ golan: false }" @click="golan = open">Golan Gear Ltd
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="golan" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="golan = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Golan Gear Ltd</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> effets d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+1%</span> de régénération de protection</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+5%</span> protection totale</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- golan -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ golan: false }" @click="golan = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Golan Gear</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="golan" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="golan = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Golan Gear</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> protection contre les altérations d'état</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> protection contre les Élites</li>
-                                            <li>Bonus 3: <span class="text-green-400">+8%</span> armure totale</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li></li>
-                                        </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="text-center font-bold space-y-2 cursor-pointer">
+                        <!-- grupo -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ grupo: false }" @click="grupo = open">Grupo Sombra S.A.
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="grupo" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="grupo = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Grupo Sombra S.A.</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> dégâts de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> dégâts d'explosion</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> dégâts de headshot</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- grupo -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ grupo: false }" @click="grupo = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Grupo Sombra SA</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="grupo" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="grupo = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Grupo Sombra SA</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+15%</span> dégâts de coups critiques</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> dégâts d'explosion</li>
-                                            <li>Bonus 3: <span class="text-green-400">+10%</span> dégâts de tirs à la tête</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li></li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- hana -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ hana: false }" @click="hana = open">Hana-U Corporation
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="hana" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="hana = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Hana-U Corporation</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> récupération de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> dégâts de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+5%</span> dégâts d'arme</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- murakami -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ murakami: false }" @click="murakami = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Murakami Industries</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="murakami" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="murakami = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Murakami Industries</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+8%</span> santé</li>
-                                            <li>Bonus 2: <span class="text-green-400">+10%</span> protection contre les Élites</li>
-                                            <li>Bonus 3: <span class="text-green-400">+15%</span> puissance de compétence de la Luciole</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Tous</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- murakami -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ murakami: false }" @click="murakami = open">Murakami Industries
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="murakami" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="murakami = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Murakami Industries</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+20%</span> durée de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> compétences de réparation</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> dégâts de compétences</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- overlord -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ murakami: false }" @click="murakami = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Overlord Armaments</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="murakami" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="murakami = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Overlord Armaments</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> dégâts de fusils</li>
-                                            <li>Bonus 2: <span class="text-green-400">+7,5%</span> armure totale</li>
-                                            <li>Bonus 3: <span class="text-green-400">+7%</span> dégâts contre les Élites</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Torse</li>
-                                            <li>Gants</li>
-                                            <li>Genouillères</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- overlord -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ overlord: false }" @click="overlord = open">Overlord Armaments
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="overlord" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="overlord = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Overlord Armaments</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> de précision</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> maniement d'arme</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- petrov -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ petrov: false }" @click="petrov = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Petrov Defense Group</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="petrov" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="petrov = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Petrov Defense Group</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> dégâts de mitrailleuse légère</li>
-                                            <li>Bonus 2: <span class="text-green-400">+7,5%</span> puissance de compétence de la Tourelle</li>
-                                            <li>Bonus 3: <span class="text-green-400">+7%</span> réduction de recharge (compétences)</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Torse</li>
-                                            <li>Sac à dos</li>
-                                            <li>Holster</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- petrov -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ petrov: false }" @click="petrov = open">Petrov Defense Group
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="petrov" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="petrov = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Petrov Defense Group</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusil-mitrailleurs</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> maniement d'arme</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+20%</span> capacité de munitions</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- providence -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ providence: false }" @click="providence = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Providence Defense</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="providence" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="providence = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Providence Defense</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> puissance de compétence</li>
-                                            <li>Bonus 2: <span class="text-green-400">+8%</span> santé</li>
-                                            <li>Bonus 3: <span class="text-green-400">+5%</span> dégâts d'armes</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Tous</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- providence -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ providence: false }" @click="providence = open">Providence Defense
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="providence" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="providence = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Providence Defense</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de headshots</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> probabilité de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+15%</span> dégâts de coups critique</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- richter -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ providence: false }" @click="providence = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Richter & Kaiser GmbH</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="providence" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="providence = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Richter & Kaiser GmbH</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> protection contre les altérations d'états</li>
-                                            <li>Bonus 2: <span class="text-green-400">+20%</span> dégâts de pistolet</li>
-                                            <li>Bonus 3: <span class="text-green-400">+15%</span> puissance de compétence du Bouclier</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Sac à dos</li>
-                                            <li>Masque</li>
-                                            <li>Holster</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- richter -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ richter: false }" @click="richter = open">Richter & Kaiser GmbH
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="richter" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="richter = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Richter & Kaiser GmbH</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> réparations bonus</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> résistance aux explosions</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+15%</span> compétences de réparation</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- sokolov -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ sokolov: false }" @click="sokolov = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Sokolov Concern</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="sokolov" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="sokolov = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Sokolov Concern</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> dégâts de pistolet-mitrailleur</li>
-                                            <li>Bonus 2: <span class="text-green-400">+8%</span> dégâts de coups critiques</li>
-                                            <li>Bonus 3: <span class="text-green-400">+15%</span> puissance de compétence de la Mine Téléguidée</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Torse</li>
-                                            <li>Masque</li>
-                                            <li>Genouillères</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- sokolov -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ sokolov: false }" @click="sokolov = open">Sokolov Concern
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="sokolov" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="sokolov = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Sokolov Concern</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de pistolet-mitrailleurs</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> dégâts de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> probabilité de coups critique</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- wyvern -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ wyvern: false }" @click="wyvern = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Wyvern Wear</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="wyvern" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="wyvern = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Wyvern Wear</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+7%</span> dégâts de coups critiques</li>
-                                            <li>Bonus 2: <span class="text-green-400">+15%</span> puissance de compétence du Drone</li>
-                                            <li>Bonus 3: <span class="text-green-400">+10%</span> chances de coups critiques</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Sac à dos</li>
-                                            <li>Masque</li>
-                                            <li>Genouillères</li>
-                                            <li>Holster</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- wyvern -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ wyvern: false }" @click="wyvern = open">Wyvern Wear
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="wyvern" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="wyvern = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Wyvern Wear</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> effets d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+20%</span> durée de compétences</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <!-- yaahl -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-orange-500 cursor-pointer" x-data="{ wyvern: false }" @click="wyvern = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-orange-500 hover:bg-gray-900 focus:outline-none">Yaahl Gear</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 133, 27, .5)" x-show="wyvern" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="wyvern = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Yaahl Gear</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+10%</span> maniement d'armes</li>
-                                            <li>Bonus 2: <span class="text-green-400">+8%</span> puissance d'altération d'état</li>
-                                            <li>Bonus 3: <span class="text-green-400">+5%</span> dégâts d'armes</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Torse</li>
-                                            <li>Sac à dos</li>
-                                            <li>Masque</li>
-                                            <li>Gants</li>
-                                        </ul>
+                            </div>
+                        </li>
+                        <!-- yaahl -->
+                        <li class="bg-orange-500 hover:bg-gray-900 hover:text-orange-500 border-2 border-transparent hover:border-orange-500 rounded p-2" x-data="{ yaahl: false }" @click="yaahl = open">Yaahl Gear
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="yaahl" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="yaahl = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Yaahl Gear</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> protection contre altérations d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+5%</span> dégâts d'arme</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+40%</span> résistance à l'Impulsion</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
+                                        <p class="text-orange-500">Équipements disponibles:</p>
+                                        <p>Tous</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-                <!-- exo tab -->
-                <table class="table-auto mx-auto bg-red-600" x-show="tab === 'exo'">
-                    <thead class="uppercase text-gray-900 opacity-50">
-                        <tr>
-                            <th class="px-4 text-left py-2 font-bold">Armes</th>
-                            <th class="px-4 text-left py-2 font-bold">Équipements</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-900">
-                        <tr>
-                            <!-- berceuse -->
-                            <td class="px-4 py-2 text-center md:text-left hover:bg-gray-900 hover:text-red-600 cursor-pointer" x-data="{ berceuse: false }" @click="berceuse = open"> 
-                                <!-- button -->
-                                <button class="btn font-bold hover:text-red-600 hover:bg-gray-900 focus:outline-none">Berceuse</button>
-                                <!-- modal -->
-                                <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0" style="background-color: rgba(255, 53, 36, .5)" x-show="berceuse" >
-                                    <div class="mx-auto bg-gray-900 text-white p-3" @click.away="berceuse = false">
-                                        <p class="text-center text-orange-500 text-3xl font-bold">Berceuse</p>
-                                        <ul>
-                                            <li>Bonus 1: <span class="text-green-400">+7%</span> dégâts de coups critiques</li>
-                                            <li>Bonus 2: <span class="text-green-400">+15%</span> puissance de compétence du Drone</li>
-                                            <li>Bonus 3: <span class="text-green-400">+10%</span> chances de coups critiques</li>
-                                        </ul>
-                                        <p class="text-orange-500 font-bold text-center mt-5">Équipements disponibles:</p>
-                                        <ul class="text-center">
-                                            <li>Sac à dos</li>
-                                            <li>Masque</li>
-                                            <li>Genouillères</li>
-                                            <li>Holster</li>
-                                        </ul>
+            <!-- exo tab -->
+                <div class="md:mx-auto md:w-auto w-full text-gray-900 flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-2" x-show="tab === 'exo'">
+                <!-- armes -->
+                    <ul class="text-center font-bold space-y-2 cursor-pointer">
+                        <p class="text-red-600 cursor-default">Armes</p>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ berceuse: false }" @click="berceuse = open">Berceuse
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="berceuse" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="berceuse = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Berceuse</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Marchand de Sable</p>
+                                        <p>Les attaques au corps à corps <span class="text-orange-500">tuent</span> instantanément les ennemis non élites. Temps de recharge: <span class="text-orange-500">15s</span>.</p>
                                     </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
-                            </td>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Étui du Dodge City Gunslinger</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Caméléon</button>
-                            </td>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Gants Stratégiques BTSU</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Eagle Bearer</button>
-                            </td>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Genouillères de Sawyer</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Flux Continu</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Impitoyable</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Inflexible</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Liberté</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Nemesis</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-red-600">
-                                <button class="btn font-bold focus:outline-none">Pestilence</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- gearsets tab -->
-                <table class="table-auto mx-auto bg-teal-500" x-show="tab === 'sets'">
-                    <tbody class="text-gray-900">
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-teal-500">
-                                <button class="btn font-bold focus:outline-none">Aces & Eights</button>
-                            </td>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-teal-500">
-                                <button class="btn font-bold focus:outline-none">Hard Wired</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-teal-500">
-                                <button class="btn font-bold focus:outline-none">Negociator's Dilemna</button>
-                            </td>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-teal-500">
-                                <button class="btn font-bold focus:outline-none">Ongoing Directive</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-teal-500">
-                                <button class="btn font-bold focus:outline-none">Tip of the Spear</button>
-                            </td>
-                            <td class="px-4 py-2 hover:bg-gray-900 hover:text-teal-500">
-                                <button class="btn font-bold focus:outline-none">True Patriot</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ bighorn: false }" @click="bighorn = open">Bighorn
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="bighorn" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="bighorn = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Bighorn</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Chasseur de Gros Gibiers</p>
+                                        <p>Quand vous zoomez, l'arme passe en mode semi-automatique et inflige <span class="text-orange-500">450% de dégâts d'arme</span> à chaque tir.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ nuit: false }" @click="nuit = open">Bonne Nuit
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="nuit" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="nuit = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Bonne Nuit</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Marchand de Sable</p>
+                                        <p>Les attaques au corps à corps <span class="text-orange-500">tuent</span> instantanément les ennemis non élites. Temps de recharge: <span class="text-orange-500">15s</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ king: false }" @click="king = open">Bullet King
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="king" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="king = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Bullet King</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Déluge de Feu</p>
+                                        <p>Cette arme ne nécessite pas de rechargement. Toutes les <span class="text-orange-500">100</span> balles qui touchent un ennemi, des munitions sont <span class="text-orange-500">ajoutées</span> dans votre réserve et celles de vos alliés.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ cameleon: false }" @click="cameleon = open">Caméléon
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="cameleon" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="cameleon = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Caméléon</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Instincts Adaptatifs</p>
+                                        <p>Placer <span class="text-orange-500">30</span> headshot confère <span class="text-orange-500">+ 20% de probabilité de coups critique</span> et <span class="text-orange-500">+ 50% de coups critique</span> pendant <span class="text-orange-500">45s</span>.</p>
+                                        <p>Placer <span class="text-orange-500">60</span> tirs au corps confère <span class="text-orange-500">+ 80% de dégâts d'arme</span> pendant <span class="text-orange-500">45s</span>.</p>
+                                        <p>Placer <span class="text-orange-500">30</span> tirs aux jambes confère <span class="text-orange-500">+ 150% de vitesse de rechargement</span> pendant <span class="text-orange-500">45s</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ diamond: false }" @click="diamond = open">Diamondback
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="diamond" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="diamond = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Diamondback</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Morsure Fatale</p>
+                                        <p>Le Diamondback marque un ennemi désigné aléatoirement. Toucher cet ennemi supprime la marque et assure un <span class="text-orange-500">coup critique de dégâts accrus de + 20%</span>. Un nouvel ennemi est marqué aléatoirement par la suite et à chaque fois que vous rechargez. Après avoir toucher une marque, tout les tirs assurent des <span class="text-orange-500">coups critique</span> pendant <span class="text-orange-500">5s</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ eagle: false }" @click="eagle = open">Eagle Bearer
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="eagle" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="eagle = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Eagle Bearer</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Frappe de l'Aigle</p>
+                                        <p>La <span class="text-orange-500">précision</span> de vos tirs augmentent lorsque vous tirez en continu, jusqu'à <span class="text-orange-500">+ 30%</span>. Les éliminations par headshot confèrent le Buff "<span class="text-orange-500">Ténacité</span>" pendant <span class="text-orange-500">15s</span>. La puissance de "<span class="text-orange-500">Ténacité</span>" est augmentée de <span class="text-orange-500">1%</span> pour les dégâts corporels et <span class="text-orange-500">5%</span> pour les headshots.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ flux: false }" @click="flux = open">Flux Continu
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="flux" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="flux = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Flux Continu</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Conversation Ininterrompue</p>
+                                        <p>Quand vous rechargez, la <span class="text-orange-500">cadence de tir</span> pour l'intégralité du chargeur augmente de <span class="text-orange-500">20%</span> pour chaque ennemis situés à moins de <span class="text-orange-500">15m</span>. Cumulable <span class="text-orange-500">5 fois</span> maximum. Les éliminations remplissent <span class="text-orange-500">50%</span> de votre chargeur.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ impitoyable: false }" @click="impitoyable = open">Impitoyable
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="impitoyable" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="impitoyable = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Impitoyable</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Détente Binaire</p>
+                                        <p>Cette arme tir lorsque l'utilisateur presse et relâche la détente. Si les deux balles touchent le même ennemis, vous gagnez un bonus. À <span class="text-orange-500">7</span> bonus, tirer sur un ennemis crée une explosion de <span class="text-orange-500">7m</span> de rayon qui inflige <span class="text-orange-500">1200% des dégâts d'arme</span> et consomme les bonus cumulés.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ inflexible: false }" @click="inflexible = open">Inflexible
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="inflexible" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="inflexible = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Inflexible</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Détente Binaire</p>
+                                        <p>Cette arme tir lorsque l'utilisateur presse et relâche la détente. Si les deux balles touchent le même ennemis, vous gagnez un bonus. À <span class="text-orange-500">7</span> bonus, tirer sur un ennemis crée une explosion de <span class="text-orange-500">7m</span> de rayon qui inflige <span class="text-orange-500">1200% des dégâts d'arme</span> et consomme les bonus cumulés.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ lady: false }" @click="lady = open">Lady Death
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="lady" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="lady = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Lady Death</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Souffle Ultime</p>
+                                        <p>Quand vous vous déplacez, confère <span class="text-orange-500">4</span> bonus par secondes, <span class="text-orange-500">8</span> bonus si vous sprintez. Ces bonus peuvent se cumuler jusqu'à <span class="text-orange-500">40</span> fois. Chaque munition tirée consomme un bonus qui augmente les <span class="text-orange-500">dégâts de 60%</span>. Les éliminations confèrent <span class="text-orange-500">+ 20% en vitesse de déplacement</span> pendant <span class="text-orange-500">10s</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ liberte: false }" @click="liberte = open">Liberté
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="liberte" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="liberte = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Liberté</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">La Liberté ou la Mort</p>
+                                        <p>Ajoute un effet cumulable à chaque tir réussi, jusqu'à <span class="text-orange-500">30</span>. Les headshots consomment tout les effets cumulés pour réparer votre bouclier de <span class="text-orange-500">3%</span> par effet.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ nemesis: false }" @click="nemesis = open">Nemesis
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="nemesis" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="nemesis = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Nemesis</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Accélérateur Électromagnétique</p>
+                                        <p>Les tirs infligent <span class="text-orange-500">0-100% de dégâts</span> en fonction du temps de pression avant de relâcher la détente.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2" x-data="{ pestilence: false }" @click="pestilence = open">Pestilence
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-red-600 text-left" x-show="pestilence" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="pestilence = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">Pestilence</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p class="text-red-600 font-bold">Fléau des Parias</p>
+                                        <p>Les coups au but appliquent un débuff qui inflige <span class="text-orange-500">100% de dégâts d'arme</span> sur <span class="text-orange-500">10s</span>. Cet effet est cumulable <span class="text-orange-500">50 fois</span>. Quand un ennemi qui subit ce débuff meurt, le cumul d'effets est transféré à un ennemi situé dans un rayon de <span class="text-orange-500">25m</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                <!-- équipements -->
+                    <ul class="text-center font-bold space-y-2 cursor-pointer">
+                        <p class="text-red-600 cursor-default">Équipements</p>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Holster de Cow-Boy de Dodge City</li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Genouillères de Sawyer</li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Dynastie Impériale</li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Genouillères de Messager Ninjabike</li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Système de Protection "Tardigrade"</li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Gants Stratégiques BTSU</li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Sac de Survie d'Acosta</li>
+                        <li class="bg-red-600 hover:bg-gray-900 hover:text-red-600 border-2 border-transparent hover:border-red-600 rounded p-2">Masque de Coyote</li>
+                    </ul>
+                </div>
+                
+            <!-- gearsets tab -->
+                <div class="md:mx-auto md:w-auto w-full text-gray-900 flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-2" x-show="tab === 'sets'">
+                    <ul class="text-center font-bold space-y-2 cursor-pointer">
+                        <!-- aces & eights -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ aces: false }" @click="aces = open">As et Huitmd:rounded-lg 
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="aces" >
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="aces = false">
+                                    <p class="text-center text-gray-900 font-bold text-3xl">As et Huit</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">15%</span> dégâts de fusils de précision</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-orange-400">20%</span> dégâts de headshots</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> La Main du Mort</p>
+                                        <div class="pl-5">
+                                            <p>Retournez une carte quand vous touchez avec un fusil de précision.<br/>
+                                                Quand 5 cartes sont retournées, les dégâts du coup suivant sont accrus de <span class="text-orange-400">30%</span>.<br/>
+                                                Plus la main révélée est forte, plus vous bénéficiez de tirs améliorés.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- corruption -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Corruption du Système
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
+                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Corruption du Système</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
+                                        <p>3 pièces: </p>
+                                        <div class="ml-2">
+                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <div class="pl-5">
+                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- hard wired -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Hard Wired
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
+                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Hard Wired</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
+                                        <p>3 pièces: </p>
+                                        <div class="ml-2">
+                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <div class="pl-5">
+                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- negociator dilemna -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Negociator's Dilemna
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption"> md:rounded-lg
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
+                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Negociator's Dilemna</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
+                                        <p>3 pièces: </p>
+                                        <div class="ml-2">
+                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <div class="pl-5">
+                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="text-center font-bold space-y-2 cursor-pointer">
+                        <!-- ongoing directive -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Ongoing Directive
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
+                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Ongoing Directive</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
+                                        <p>3 pièces: </p>
+                                        <div class="ml-2">
+                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <div class="pl-5">
+                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- striker -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Striker
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
+                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Striker</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
+                                        <p>3 pièces: </p>
+                                        <div class="ml-2">
+                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <div class="pl-5">
+                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- tip of the spear -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Tip of the Spear
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
+                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Tip of the Spear</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
+                                        <p>3 pièces: </p>
+                                        <div class="ml-2">
+                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <div class="pl-5">
+                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- true patriot -->
+                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">True Patriot
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
+                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">True Patriot</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
+                                        <p>3 pièces: </p>
+                                        <div class="ml-2">
+                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <div class="pl-5">
+                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            </p>
+                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
+                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
+                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
+                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                    </div>
+                                    <div class="bg-gray-900 md:rounded-lg p-2">
+                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                    </div>
+                                    <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
+    <!-- links -->
+        <div class="flex space-x-3 pt-3 mx-auto items-center text-white opacity-50">
+            <p class="md:font-light md:text-xs">&#169; Demey Christophe</p>
+            <a href="https://github.com/ChrisDemey/TD2-Tailwind-Alpine" target="_blank">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+        </div>
+
     </div>
+
 </body>
 
 </html>
