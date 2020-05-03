@@ -19,6 +19,14 @@
 <!-- content -->
     <div class="relative h-screen flex flex-col p-3">
 
+    <!-- github link -->
+        <div class="flex absolute bottom-0 inset-x-0 justify-center pb-3 space-x-3 items-center text-white opacity-50">
+            <p class="md:font-light text-xs">&#169; Demey Christophe</p>
+            <a href="https://github.com/ChrisDemey/TD2-Tailwind-Alpine" target="_blank">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+        </div>
+
     <!-- header -->
         <div class="flex justify-center"><img class="w-56" src="https://ubistatic-a.akamaihd.net/0115/tctd2/images/TCTD2_Logo_Full_Orange_White.png" alt="TD2-logo"></div>
 
@@ -75,7 +83,7 @@
                 </button>
                 <!-- gear sets -->
                 <button 
-                    :class="{ 'bg-teal-500 text-teal-700': tab === 'sets' }" 
+                    :class="{ 'bg-green-500 text-green-600': tab === 'sets' }" 
                     @click="tab = 'sets'" 
                     class="
                         p-3
@@ -86,12 +94,12 @@
                         transition
                         duration-300
                         bg-transparent
-                        text-teal-500
+                        text-green-500
                         uppercase
                         font-bold
                         text-center
-                        hover:text-teal-700
-                        hover:bg-teal-500
+                        hover:text-green-600
+                        hover:bg-green-500
                         hover:border-none
                         focus:outline-none"
                     >sets
@@ -109,9 +117,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="tactical" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="tactical = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">5.11 Tactical</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> santé</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> réparations bonus</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> protection altérations d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> santé</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+15%</span> réparations bonus</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> protection altérations d'état</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -125,9 +133,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="airaldi" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="airaldi = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Airaldi Holdings</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils de préciion</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> dégâts de headshot</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+5%</span> dégâts aux protections</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de fusils de préciion</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> dégâts de headshot</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+5%</span> dégâts aux protections</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -141,9 +149,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="summit" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="summit = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Alps Summit Armament</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> compétences de réparation</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+20%</span> durée de compétences</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> récupération de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+15%</span> compétences de réparation</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+20%</span> durée de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> récupération de compétences</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -157,9 +165,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="badger" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="badger = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Badger Tuff</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils à pompe</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+5%</span> protection totale</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> protection pour élimination</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de fusils à pompe</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+5%</span> protection totale</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> protection pour élimination</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -173,9 +181,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="ceska" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="ceska = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Česká Výroba s.r.o.</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> probalité de coups critiques</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> protection contre altération d'état</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> santé</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> probalité de coups critiques</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> protection contre altération d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> santé</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -189,9 +197,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="china" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="china = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">China Light Industries Corporation</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> dégâts d'explosion</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> récupération de compétences</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> effets d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+15%</span> dégâts d'explosion</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> récupération de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> effets d'état</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -205,9 +213,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="douglas" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="douglas = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Douglas & Harding</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+20%</span> dégâts de pistolets</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> de stabilité</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> de précision</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+20%</span> dégâts de pistolets</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> de stabilité</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> de précision</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -221,9 +229,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="fenris" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="fenris = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Fenris Group AB</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils d'assaut</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> vitesse de rechargement</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> de stabilité</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de fusils d'assaut</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> vitesse de rechargement</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> de stabilité</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -237,9 +245,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="gila" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="gila = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Gila Guard</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+5%</span> protection totale</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> de santé</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+1%</span> de régénération de protection</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+5%</span> protection totale</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> de santé</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+1%</span> de régénération de protection</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -253,9 +261,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="golan" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="golan = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Golan Gear Ltd</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> effets d'état</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+1%</span> de régénération de protection</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+5%</span> protection totale</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> effets d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+1%</span> de régénération de protection</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+5%</span> protection totale</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -271,9 +279,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="grupo" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="grupo = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Grupo Sombra S.A.</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> dégâts de coups critique</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> dégâts d'explosion</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> dégâts de headshot</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+15%</span> dégâts de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+15%</span> dégâts d'explosion</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> dégâts de headshot</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -287,9 +295,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="hana" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="hana = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Hana-U Corporation</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> récupération de compétences</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> dégâts de compétences</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+5%</span> dégâts d'arme</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> récupération de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> dégâts de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+5%</span> dégâts d'arme</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -303,9 +311,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="murakami" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="murakami = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Murakami Industries</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+20%</span> durée de compétences</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> compétences de réparation</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> dégâts de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+20%</span> durée de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+15%</span> compétences de réparation</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> dégâts de compétences</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -320,9 +328,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="overlord" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="overlord = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Overlord Armaments</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusils</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> de précision</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> maniement d'arme</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de fusils</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> de précision</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> maniement d'arme</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -336,9 +344,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="petrov" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="petrov = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Petrov Defense Group</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de fusil-mitrailleurs</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> maniement d'arme</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+20%</span> capacité de munitions</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de fusil-mitrailleurs</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> maniement d'arme</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+20%</span> capacité de munitions</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -352,9 +360,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="providence" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="providence = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Providence Defense</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de headshots</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> probabilité de coups critique</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+15%</span> dégâts de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de headshots</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> probabilité de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+15%</span> dégâts de coups critique</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -368,9 +376,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="richter" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="richter = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Richter & Kaiser GmbH</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+15%</span> réparations bonus</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> résistance aux explosions</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+15%</span> compétences de réparation</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+15%</span> réparations bonus</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> résistance aux explosions</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+15%</span> compétences de réparation</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -384,9 +392,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="sokolov" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="sokolov = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Sokolov Concern</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de pistolet-mitrailleurs</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+15%</span> dégâts de coups critique</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+10%</span> probabilité de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de pistolet-mitrailleurs</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+15%</span> dégâts de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+10%</span> probabilité de coups critique</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -400,9 +408,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="wyvern" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="wyvern = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Wyvern Wear</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> dégâts de compétences</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+10%</span> effets d'état</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+20%</span> durée de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> dégâts de compétences</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+10%</span> effets d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+20%</span> durée de compétences</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -416,9 +424,9 @@
                             <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-orange-500 text-left" x-show="yaahl" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/3" @click.away="yaahl = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">Yaahl Gear</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-400">+10%</span> protection contre altérations d'état</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-400">+5%</span> dégâts d'arme</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-400">+40%</span> résistance à l'Impulsion</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">1 pièce: <span class="text-green-500">+10%</span> protection contre altérations d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-green-500">+5%</span> dégâts d'arme</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-green-500">+40%</span> résistance à l'Impulsion</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 font-bold text-center">
                                         <p class="text-orange-500">Équipements disponibles:</p>
                                         <p>Tous</p>
@@ -730,14 +738,14 @@
                 <div class="justify-start md-justify-center w-full px-10 text-gray-900 flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-2" x-show="tab === 'sets'">
                     <ul class="text-center w-full font-bold space-y-2 cursor-pointer">
                         <!-- aces & eights -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ aces: false }" @click="aces = open">As et Huit
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="aces" >
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ aces: false }" @click="aces = open">As et Huit
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-green-500 text-left" x-show="aces" >
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="aces = false">
                                     <p class="text-center text-gray-900 font-bold text-3xl">As et Huit</p>
                                     <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">15%</span> dégâts de fusils de précision</p>
                                     <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-orange-400">20%</span> dégâts de headshots</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> La Main du Mort</p>
+                                        <p>4 pièces: <span class="text-orange-400">La Main du Mort</span></p>
                                         <div class="pl-5">
                                             <p>Retournez une carte quand vous touchez avec un fusil de précision.<br/>
                                                 Quand 5 cartes sont retournées, les dégâts du coup suivant sont accrus de <span class="text-orange-400">30%</span>.<br/>
@@ -761,105 +769,91 @@
                             </div>
                         </li>
                         <!-- corruption -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Corruption du Système
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Corruption du Système
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-green-500 text-left" x-show="corruption">
                                 <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
-                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Corruption du Système</p>
+                                    <p class="text-center text-gray-900 font-bold bg-green-500 text-3xl">Corruption du Système</p>
                                     <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 flex">
                                         <p>3 pièces: </p>
                                         <div class="ml-2">
-                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
-                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                            <p><span class="text-orange-400">+40%</span> résistance à la désactivation</p>
+                                            <p><span class="text-orange-400">+40%</span> réssitance à l'Impulsion</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <p>4 pièces: <span class="text-orange-400">Protocole Hackstep</span></p>
                                         <div class="pl-5">
-                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
+                                            <p>Remplace les kits de protection par une capacité d'utilisation instantanée et infini, avec un temps de recharge de <span class="text-orange-400">20 s</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre nom pendant <span class="text-orange-400">5 s</span>.
                                             </p>
-                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
-                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
-                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
-                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                        <p>Sac à dos: <span class="text-orange-400">Exécution Multithreading</span></p>
+                                        <p class="pl-5">Augmente la protection bonus du Protocole Hackstep de <span class="text-orange-400">50 %</span> à <span class="text-orange-400">100 %</span>.</p>
                                     </div>
                                     <div class="bg-gray-900 p-2">
-                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
-                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                        <p>Torse: <span class="text-orange-400">Optimisation de Compilateur</span></p>
+                                        <p class="pl-5">Diminue le temps de recharge du Protocole Hackstep de <span class="text-orange-400">20 s</span> à <span class="text-orange-400">50 s</span>.</p>
                                     </div>
                                     <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
                             </div>
                         </li>
                         <!-- hard wired -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Hard Wired
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
-                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
-                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Hard Wired</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ wired: false }" @click="wired = open">Hard Wired
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-green-500 text-left" x-show="wired">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="wired = false">
+                                    <p class="text-center text-gray-900 font-bold bg-green-500 text-3xl">Hard Wired</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> récupération de compétence</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2 flex">
                                         <p>3 pièces: </p>
                                         <div class="ml-2">
-                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
-                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
+                                            <p><span class="text-orange-400">+15%</span> dégâts de compétence</p>
+                                            <p><span class="text-orange-400">+15%</span> compétence de réparation</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <p>4 pièces: <span class="text-orange-400">Boucle de Rétroaction</span></p>
                                         <div class="pl-5">
-                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
-                                            </p>
-                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
-                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
-                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                            <p>Chaque fois que vous utilisez ou annulez une compétence, votre autre compétence se recharge automatiquement et vos totaux de <span class="text-orange-400">dégâts et réparation de compétence</span> sont augmentés de <span class="text-orange-400">10 %</span> pendant <span class="text-orange-400">20 s</span>.</p>
+                                            <p>Cet effet peut se produire une fois toutes les <span class="text-orange-400">20 s</span>.</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
-                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Court-Circuit</span></p>
+                                        <p class="pl-5">Diminue le temps de recharge de la Boucle de Rétroaction de <span class="text-orange-400">20 s</span> à <span class="text-orange-400">10 s</span>.</p>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
-                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                        <p>Talent du torse: <span class="text-orange-400">Renforcement Positif</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts et de réparation de compétence de la Boucle de Rétroaction de <span class="text-orange-400">+ 10 %</span> à <span class="text-orange-400">+ 25 %</span>.</p>
                                     </div>
                                     <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
                             </div>
                         </li>
                         <!-- negociator dilemna -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Negociator's Dilemna
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption"> md:rounded-lg
-                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
-                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Negociator's Dilemna</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
-                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
-                                        <p>3 pièces: </p>
-                                        <div class="ml-2">
-                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
-                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
-                                        </div>
-                                    </div>
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ dilemme: false }" @click="dilemme = open">Dilemme du Négociateur
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-green-500 text-left" x-show="dilemme">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="dilemme = false">
+                                    <p class="text-center text-gray-900 font-bold bg-green-500 text-3xl">Dilemme du Négociateur</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> probabilité de coups critique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-orange-400">+15%</span> dégâts de coups critique</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <p>4 pièces: <span class="text-orange-400">Négociations Hostiles</span></p>
                                         <div class="pl-5">
-                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
-                                            </p>
-                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
-                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
-                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                            <p>Les coups critique marquent les ennemis pendant <span class="text-orange-400">20 s</span>. Jusqu'à <span class="text-orange-400">3</span> marques peuvent être cumulées sur un ennemi.</p>
+                                            <p>Quand vous réalisez un coup critique sur un ennemi marqué, tous les autres ennemis marqués subissent également <span class="text-orange-400">40 %</span> des dégâts infligés.</p>
+                                            <p>Quand un ennemi marqué meurt, vous gagnez <span class="text-orange-400">+ 2 % aux coups critique</span>. Cet effet est cumulable jusqu'à <span class="text-orange-400">20 fois</span> avant la fin du combat.</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
-                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Mesures Critiques</span></p>
+                                        <p class="pl-5">Augmente les dégâts de Négociations Hostiles aux ennemis marqués supplémentaires de <span class="text-orange-400">60 %</span> à <span class="text-orange-400">100 %</span>.</p>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
-                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                        <p>Talent du torse: <span class="text-orange-400">Contrôle de Masse</span></p>
+                                        <p class="pl-5">Le nombre de marques de Négociations Hostiles passe de <span class="text-orange-400">3</span> à <span class="text-orange-400">5</span>.</p>
                                     </div>
                                     <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
@@ -868,140 +862,111 @@
                     </ul>
                     <ul class="text-center w-full font-bold space-y-2 cursor-pointer">
                         <!-- ongoing directive -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Ongoing Directive
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
-                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
-                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Ongoing Directive</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
-                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
-                                        <p>3 pièces: </p>
-                                        <div class="ml-2">
-                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
-                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
-                                        </div>
-                                    </div>
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ directive: false }" @click="directive = open">Ongoing Directive
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-green-500 text-left" x-show="directive">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="directive = false">
+                                    <p class="text-center text-gray-900 font-bold bg-green-500 text-3xl">Ongoing Directive</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> effet d'état</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-orange-400">+20%</span> vitesse de rechargement</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <p>4 pièces: <span class="text-orange-400">Règles d'Engagement</span></p>
                                         <div class="pl-5">
-                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
-                                            </p>
-                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
-                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
-                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                            <p>Tuer un ennemi affecté par un effet d'état génère des munitions à pointe creuse. Les munitions à pointe creuse bénéficient de <span class="text-orange-400">dégâts d'arme</span> accrus de <span class="text-orange-400">20 %</span> et infligent <span class="text-orange-400">saignement</span> quand elles touchent.</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
-                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Réquisition d'Urgence</span></p>
+                                        <p class="pl-5">Quand vous rechargez votre arme, les ressources de combat (kits de protection, munitions et grenades) sont automatiquement récupérées dans un rayon de <span class="text-orange-400">40 m</span> de vous.</p>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
-                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                        <p>Talent du torse: <span class="text-orange-400">Munitions Parabellum</span></p>
+                                        <p class="pl-5">Augmente les dégâts des munitions à pointe creuse à <span class="text-orange-400">35 %</span>.</p>
                                     </div>
                                     <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
                             </div>
                         </li>
                         <!-- striker -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Striker
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
-                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
-                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Striker</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
-                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
-                                        <p>3 pièces: </p>
-                                        <div class="ml-2">
-                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
-                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
-                                        </div>
-                                    </div>
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ striker: false }" @click="striker = open">Le Cogneur
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-green-500 text-left" x-show="striker">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="striker = false">
+                                    <p class="text-center text-gray-900 font-bold bg-green-500 text-3xl">Le Cogneur</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> maniement d' arme</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-orange-400">+15%</span> cadence de tir</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <p>4 pièces: <span class="text-orange-400">Pari du cogneur</span></p>
                                         <div class="pl-5">
-                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
-                                            </p>
-                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
-                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
-                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                            <p>Les tirs à l'arme amplifient les <span class="text-orange-400">dégâts d'arme</span> totaux de <span class="text-orange-400">0,5 %</span> en stock jusqu'à <span class="text-orange-400">50 fois</span>.</p>
+                                            <p><span class="text-orange-400">1</span> charge est perdue chaque <span>5 s</span>.</p>
+                                            <p><span class="text-orange-400">3</span> charges sont perdues chaque fois que vous manquez un tir.</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
-                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Gestion des Risques</span></p>
+                                        <p class="pl-5">Réduit de <span class="text-orange-400">3</span> à <span class="text-orange-400">2</span> les charges perdues en cas de tir manqué pour Pari du Cogneur.</p>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
-                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                        <p>Talent du torse: <span class="text-orange-400">Appuyer sur l'Avantage</span></p>
+                                        <p class="pl-5">Augmente le nombre maximum de charges pour Pari du Cogneur de <span class="text-orange-400">50</span> à <span class="text-orange-400">100</span>.</p>
                                     </div>
                                     <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
                             </div>
                         </li>
                         <!-- tip of the spear -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">Tip of the Spear
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
-                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
-                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">Tip of the Spear</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
-                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
-                                        <p>3 pièces: </p>
-                                        <div class="ml-2">
-                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
-                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
-                                        </div>
-                                    </div>
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ pointe: false }" @click="pointe = open">Pointe de la Lance
+                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-green-500 text-left" x-show="pointe">
+                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="pointe = false">
+                                    <p class="text-center text-gray-900 font-bold bg-green-500 text-3xl">Pointe de la Lance</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+10%</span> dégâts d'arme spécifique</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-orange-400">+10%</span> dégâts d'arme</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <p>4 pièces: <span class="text-orange-400">Reconnaissance Agressive</span></p>
                                         <div class="pl-5">
-                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
-                                            </p>
-                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
-                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
-                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                            <p>Les éliminations à l'arme spécifique augmentent le total de <span class="text-orange-400">dégâts d'arme</span> de <span class="text-orange-400">20 %</span> pendant <span class="text-orange-400">40 s</span>. Génère automatiquement des munitions spécifiques toutes les <span class="text-orange-400">60 s</span>.</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
-                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Expert de l'Arbalète</span></p>
+                                        <p class="pl-5">La Reconnaissance Agressive génère un carreau supplémentaire toutes les <span class="text-orange-400">60 s</span>.</p>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
-                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                        <p>Talent du torse: <span class="text-orange-400">Destruction Spécialisée</span></p>
+                                        <p class="pl-5">Augmente le bonus de dégâts d'arme de la Reconnaissance Agressive de <span class="text-orange-400">20 %</span> à <span class="text-orange-400">40 %</span>.</p>
                                     </div>
                                     <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
                             </div>
                         </li>
                         <!-- true patriot -->
-                        <li class="bg-teal-500 hover:bg-gray-900 hover:text-teal-500 border-2 border-transparent hover:border-teal-500 rounded p-2" x-data="{ corruption: false }" @click="corruption = open">True Patriot
-                            <div class="cursor-auto absolute flex content-center flex-wrap h-full w-full top-0 left-0 bg-teal-500 text-left" x-show="corruption">
-                                <div class="mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="corruption = false">
-                                    <p class="text-center text-gray-900 font-bold bg-teal-500 text-3xl">True Patriot</p>
-                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+15%</span> de protection pour élimination</p>
-                                    <div class="bg-gray-900 md:rounded-lg p-2 flex">
-                                        <p>3 pièces: </p>
-                                        <div class="ml-2">
-                                            <p><span class="text-orange-400">+40%</span> résistance - désactivations</p>
-                                            <p><span class="text-orange-400">+40%</span> réssitance - impulsion</p>
-                                        </div>
-                                    </div>
+                        <li class="bg-green-500 hover:bg-gray-900 hover:text-green-500 border-2 border-transparent hover:border-green-500 rounded p-2" x-data="{ patriot: false }" @click="patriot = open">True Patriot
+                            <div class="cursor-auto absolute flex content-start md:content-center flex-wrap h-auto w-full top-0 left-0 bg-green-500 text-left" x-show="patriot">
+                                <div class="my-8 mx-auto font-normal text-white space-y-1 w-full md:w-1/2" @click.away="patriot = false">
+                                    <p class="text-center text-gray-900 font-bold bg-green-500 text-3xl">True Patriot</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">2 pièces: <span class="text-orange-400">+30%</span> capacité de munitions</p>
+                                    <p class="bg-gray-900 md:rounded-lg p-2">3 pièces: <span class="text-orange-400">+30%</span> taille du chargeur</p>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>4 pièces: <span class="text-orange-400">Talent:</span> Protocole Hackstep</p>
+                                        <p>4 pièces: <span class="text-orange-400">Rouge, Blanc et Bleu</span></p>
                                         <div class="pl-5">
-                                            <p>Remplace les kits de protection par une capacité instantanée à usage limité et dotée d'un temps de recharge de <span class="text-orange-400">20%</span>, qui confère <span class="text-orange-400">50% de protection bonus</span> et masque votre plaque pendant <span class="text-orange-400">5 s</span>.
-                                            </p>
-                                            <p><span class="text-orange-400">Carré: </span>4 tirs</p>
-                                            <p><span class="text-orange-400">Full: </span>3 tirs</p>
-                                            <p><span class="text-orange-400">As et Huit: </span>2 tirs</p>
+                                            <p>Toutes les <span class="text-orange-400">7 s</span>, les ennemis sur lesquels vous tirez subissent un débuff cumulable de <span class="font-bold text-red-600">Rouge</span>, <span class="font-bold">Blanc</span> et <span class="font-bold text-blue-600">Bleu</span>.</p>
+                                            <p><span class="font-bold text-red-600">ROUGE</span>: augmente les dégâts subis par l'ennemi de <span class="text-orange-400">8 %</span>.</p>
+                                            <p><span class="font-bold">BLANC</span>: Toucher l'ennemi répare votre protection et celle de vos alliés de <span class="font-bold text-orange-400">5 %</span> à chaque secondes.</p>
+                                            <p><span class="font-bold text-blue-600">BLEU</span>: diminue les dégâts infligé par l'ennemi de <span class="text-orange-400">8 %</span>.</p>
+                                            <p><span class="font-bold text-red-600">TRI</span><span class="font-bold">CO</span><span class="font-bold text-blue-600">LOR</span>: les ennemis qui meurent lorsqu'ils sont sous l'effet des <span class="text-orange-400">3 débuffs</span> déclenchent une explosion de <span>5 m</span> de rayon infligeant des dég^ts équivalant à leur total de santé et de protetion. (Les dégâts d'explosion sont réduits si c'est un ennemi spécifié qui meurt)</p>
                                         </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du sac à dos: <span class="text-orange-400">Poker Face</span></p>
-                                        <p class="pl-5">Retournez une carte supplémentaire de La Main du Mort sur les headshots.</p>
+                                        <p>Talent du sac à dos: <span class="text-orange-400">Élan Patriotique</span></p>
+                                        <div class="pl-5">
+                                            <p>Augmente l'efficacité des débuff <span class="font-bold text-red-600">Rouge</span>, <span class="font-bold">Blanc</span> et <span class="font-bold text-blue-600">Bleu</span>.</p>
+                                            <p><span class="font-bold text-red-600">ROUGE</span>: de <span class="text-orange-400">8 %</span> à <span class="text-orange-400">12 %</span>.</p>
+                                            <p><span class="font-bold">BLANC</span>: de <span class="text-orange-400">5 %</span> à <span class="text-orange-400">8 %</span>.</p>
+                                            <p><span class="font-bold text-blue-600">BLEU</span>: de <span class="text-orange-400">8 %</span> à <span class="text-orange-400">12 %</span>.</p>
+                                        </div>
                                     </div>
                                     <div class="bg-gray-900 md:rounded-lg p-2">
-                                        <p>Talent du torse: <span class="text-orange-400">Sans Limite</span></p>
-                                        <p class="pl-5">Augmente le bonus de dégâts de La Main du Mort de <span class="text-orange-400">30%</span> à <span class="text-orange-400">50%</span>.</p>
+                                        <p>Talent du torse: <span class="text-orange-400">Drapeau Brandi</span></p>
+                                        <p class="pl-5">Augmente la vitesse de rotation de <span class="font-bold text-red-600">Rouge</span>, <span class="font-bold">Blanc</span> et <span class="font-bold text-blue-600">Bleu</span> de <span class="text-orange-400">15 s</span>.</p>
                                     </div>
                                     <p class="text-xs font-normal text-black text-right opacity-50">Clic en dehors du tableau pour le fermer</p>
                                 </div>
@@ -1011,15 +976,7 @@
                 </div>
             </div>
         </div>
-
-    <!-- links -->
-        <div class="flex space-x-3 pt-3 mx-auto items-center text-white opacity-50">
-            <p class="md:font-light md:text-xs">&#169; Demey Christophe</p>
-            <a href="https://github.com/ChrisDemey/TD2-Tailwind-Alpine" target="_blank">
-                <i class="fab fa-github fa-lg"></i>
-            </a>
-        </div>
-
+    
     </div>
 
 </body>
