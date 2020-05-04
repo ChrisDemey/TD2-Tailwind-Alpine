@@ -28,7 +28,10 @@
         </div>
 
     <!-- header -->
-        <div class="flex justify-center"><img class="w-56" src="https://ubistatic-a.akamaihd.net/0115/tctd2/images/TCTD2_Logo_Full_Orange_White.png" alt="TD2-logo"></div>
+        <div class="flex justify-center items-center space-x-3">
+            <img class="w-56" src="https://ubistatic-a.akamaihd.net/0115/tctd2/images/TCTD2_Logo_Full_Orange_White.png" alt="TD2-logo">
+            <p class="text-white opacity-50">TU9</p>
+        </div>
 
     <!-- main part -->
         <div class="flex h-full flex-col md:flex-row overflow-y-hidden" x-data="{ tab: '' }">
@@ -107,7 +110,7 @@
             </nav>
 
         <!-- Tables -->
-            <div class="overflow-y-auto md:mt-10 mx-auto w-full md:w-2/3 flex">
+            <div class="overflow-y-auto mb-10 md:mt-10 mx-auto w-full md:w-2/3 flex">
 
             <!-- brands tab -->
                 <div class="justify-start md-justify-center w-full px-10 text-gray-900 flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-2" x-show="tab === 'brands'">
